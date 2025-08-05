@@ -1,3 +1,53 @@
-h1{
+:root {}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: aqua;
+    text-align: center;
+    
+}
+
+
+
+h1 {
     color: blue;
+    
+    font-size: 80px;
+
+}
+
+button{
+
+    text-color: #016f32;
+width: 160px;
+border: solid 5px blue;
+
+background : red;
+margin-top: 35px;
+}
+
+.zweipfeile {
+    
+}
+
+.zweipfeile i {
+    color: crimson;
+    font-size: 30px;
+    animation-name: zweipfeile;
+    animation-duration: 10s;
+
+}
+
+@keyframes zweipfeile {
+    from {
+        color: blue;
+
+        font-size: 10px;
+
+    }
+
+    to {
+        font-size: 50px;
+        color: red;
+    }
 }
