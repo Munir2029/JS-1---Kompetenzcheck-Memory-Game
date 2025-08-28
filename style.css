@@ -1,132 +1,161 @@
-:root {
-    display: flex;
+*{
     box-sizing: border-box;
+
 }
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: aqua;
-    text-align: center;
 
 }
 
+.control-buttons{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width:100%;
+    height: 100%;
+    z-index: 3;
+    background-size: cover;
+    background-color: rgba(255, 250, 240, 0.86);
 
 
-h1 {
-    color: blue;
 
-    font-size: 80px;
-
+     
 }
 
-button {
-
-    text-color: #016f32;
-    width: 160px;
-    border: solid 5px blue;
-
-    background: red;
-    margin-top: 35px;
+.control-buttons #startGame {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    z-index: 3;
+    background-color:yellow;
+    border: solid 2px black;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-}
 
-.zweipfeile {}
 
-.zweipfeile i {
-    color: crimson;
-    font-size: 30px;
-    animation-name: zweipfeile;
-    animation-duration: 10s;
 
 }
 
-@keyframes zweipfeile {
 
-    from {
-        color: blue;
 
-        font-size: 10px;
-
-    }
-
-    to {
-        font-size: 50px;
-        color: red;
-    }
-}
-
-.imggame-blok {
-    height: auto;
-    width: 50px;
-    margin: 3px;
-}
 
 
 .info-container {
     width: 300px;
-    border: solid 10px darkgrey;
-    margin-bottom: 15px;
-}
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 12px;
 
+    overflow: hidden;
+    /*اخفاء المحتوى الزائد  */
+    border: 2px solid #2196f3;
+    text-align: center;
+    overflow:hidden;       /*überflüssigen Inhalt ausbelden*/  
+
+
+}
 
 .info-container .name {
     float: left;
+    width: 50%;
 
 }
 
-.info-container .trise {
-    float: left;
+.info-container .tries {
+
+    float: right;
+    width: 50%;
     text-align: right;
 }
 
-.memoy-game-blocks {
+.memory-game-bloks .game-block .back img {
+    width: 90%;
+    height: 90%;
 
+    margin: 3px;
+    overflow:hidden;
+     background-color: bisque;
+}
 
-    height: 380px;
+.memory-game-bloks {
     display: flex;
-    flex-direction: row;
+    width: 320px;
+    height: auto;
     flex-wrap: wrap;
-    margin: 5px auto;
-    justify-content: space-around;
+    margin: 10px auto;
 
 
 }
+.memory-game-bloks.no-clicking{
 
-.memoy-game-blocks .game-blok .front::before{
-    background-image: url(Foto/face-front.jpg);
-    width: 300px;
-    height: 300px;
+    pointer-events:none ;
 }
 
-.memoy-game-blocks .game-blok {
-    transition: transform 5s;
+.memory-game-bloks .game-block {
+
+    height: 180px;
+    transition: transform .3s;
     /*verhindert plötzliche Anderung */
-
     transform-style: preserve-3d;
+    /*3D Effekt */
     cursor: pointer;
     /*Den Mauszeiger zur Hand ändern*/
-   
+
     position: relative;
     /*ein kleine verschibung des Elements*/
-    flex: 1 0 20px;  
+    flex: 1 0 100px;
     /*Flexibilität zum Wachsen geben*/
-}
-
-.memoy-game-blocks .game-blok .front{
-    background-color: yellowgreen;
 
 }
 
-.memoy-game-blocks .game-blok .back{
-    background-color: burlywood;
-    transform: rotate(180deg);                /*180 grad drehen und andre zeit zeigen   */
-
+.memory-game-bloks .game-block .front {
+    background-color: bisque;
+    line-height: 180px;
+   
+  
 }
 
-.memoy-game-blocks .game-blok .face{
-    position: relative;
+
+.memory-game-bloks .game-block .front:before {
+
+    content: '?';
+    color: aqua;
+    width: 100%;
+    height: 100%;
+    font-size: 110px;
+    font-weight: bold;
     text-align: center;
-    backface-visibility: hidden;
-    
+    padding: 10px;
+    background-color: black;
+
 
 }
+
+.memory-game-bloks .game-block .back { 
+
+    transform: rotateY(180deg);
+    /*تدوبر العناصر */
+     background-color: bisque;
+
+
+}
+
+.memory-game-bloks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility:hidden;         
+}
+
+.memory-game-bloks .game-block.is-flipped,
+.memory-game-bloks .game-block.has-match{
+    transform: rotateY(180deg);
+
+}
+ 

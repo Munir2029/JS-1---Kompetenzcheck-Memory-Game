@@ -1,0 +1,136 @@
+:root {
+    display: flex;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: aqua;
+    text-align: center;
+
+}
+
+
+
+h1 {
+    color: blue;
+
+    font-size: 80px;
+
+}
+
+button {
+
+    text-color: #016f32;
+    width: 160px;
+    border: solid 5px blue;
+
+    background: red;
+    margin-top: 35px;
+    cursor: pointer;
+}
+
+.zweipfeile {}
+
+.zweipfeile i {
+    color: crimson;
+    font-size: 30px;
+    animation-name: zweipfeile;
+    animation-duration: 10s;
+
+}
+
+@keyframes zweipfeile {
+
+    from {
+        color: blue;
+
+        font-size: 10px;
+
+    }
+
+    to {
+        font-size: 50px;
+        color: red;
+    }
+}
+
+.imggame-blok {
+    height: auto;
+    width: 50px;
+    margin: 3px;
+}
+
+
+.info-container {
+    width: 300px;
+    border: solid 10px darkgrey;
+    margin-bottom: 15px;
+}
+
+
+.info-container .name {
+    float: left;
+
+}
+
+.info-container .trise {
+    float: left;
+    text-align: right;
+}
+
+.memoy-game-blocks {
+
+
+    height: 380px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px auto;
+    justify-content: space-around;
+    perspective: 1000px;
+
+
+}
+
+.memoy-game-blocks .game-blok .back:before{
+    content: '!';
+    color: #016f32;
+    font-size: 100px;
+    margin: 40px;
+    border: solid 10px red;
+    
+}
+
+.memoy-game-blocks .game-blok {
+    transition: transform 5s;
+    /*verhindert plötzliche Anderung */
+
+    transform-style: preserve-3d;
+    cursor: pointer;
+    /*Den Mauszeiger zur Hand ändern*/
+   
+    position: relative;
+    /*ein kleine verschibung des Elements*/
+    flex: 1 0 20px;  
+    /*Flexibilität zum Wachsen geben*/
+}
+
+.memoy-game-blocks .game-blok .front{
+    background-color: yellowgreen;
+
+}
+
+.memoy-game-blocks .game-blok .back{
+    background-color: burlywood;
+   /* transform: rotate(180deg);                180 grad drehen und andre zeit zeigen   */
+
+}
+
+.memoy-game-blocks .game-blok .face{
+    position: relative;
+    text-align: center;
+    backface-visibility: hidden;
+    
+
+}
